@@ -1,0 +1,36 @@
+.edit-bar button {
+  margin-right: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #dddddd;
+}
+
+.edit-bar {
+  margin-bottom: 10px;
+}
+
+.add-book-form {
+  padding: 10px;
+  background: #dddddd;
+  border: 1px solid #ccc;
+}
+.add-book-form > form {
+  display: flex;
+}
+
+.add-book-form > form .add-book-form-content {
+  margin-right: 15px;
+}
+
+.add-book-form-content label {
+  margin-right: 10px;
+}

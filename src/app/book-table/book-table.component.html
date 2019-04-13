@@ -1,0 +1,43 @@
+<div class="edit-bar">
+  <button (click)="onAddForm()">Add Book</button>
+  <button>Delete Book</button>
+</div>
+
+<div class="add-book-form" *ngIf="showForm">
+  <form action="">
+    <div class="add-book-form-content">
+      <label for="">Book Name</label>
+      <input type="text" placeholder="Please enter Book Name" />
+    </div>
+    <div class="add-book-form-content">
+      <label for="">Author</label>
+      <input type="text" placeholder="Please enter Author" />
+    </div>
+    <div class="add-book-form-content">
+      <label for="">Read</label>
+      <input type="radio" name="confirm" value="yes" checked />Yes
+      <input type="radio" name="confirm" value="no" />No
+    </div>
+    <button type="submit">Add Book</button>
+    <button type="button" (click)="onCancelForm()">Cancel</button>
+  </form>
+</div>
+
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Book Name</th>
+    <th>Author</th>
+    <th>Read/Not-read</th>
+    <th>Rating</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let tableDatas of tableData">
+      <td>{{ tableDatas.id }}</td>
+      <td>{{ tableDatas.bookname }}</td>
+      <td>{{ tableDatas.authorname }}</td>
+      <td>{{ tableDatas.readornot }}</td>
+      <td>{{ tableDatas.rating }}</td>
+    </tr>
+  </tbody>
+</table>
