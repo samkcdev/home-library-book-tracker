@@ -4,4 +4,5 @@
   </h1>
 </header>
 
-<app-book-table></app-book-table>
+<app-book-table (showBookDetail)="bookFromtable($event)"></app-book-table>
+<app-book-details [sendingBookData]="bookData"></app-book-details>

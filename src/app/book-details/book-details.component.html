@@ -1,3 +1,10 @@
-<p>
-  book-details works!
-</p>
+<div class="book-cover"></div>
+
+<div class="book-detail" *ngIf="sendingBookData">
+  {{ sendingBookData.id }}
+  {{ sendingBookData.bookname }}
+  {{ sendingBookData.authorname }}
+  <p>
+    Book Description from GoodReads API
+  </p>
+</div>

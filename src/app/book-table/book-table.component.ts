@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { BookTable } from "../shared/book-table.model";
 
 @Component({
@@ -8,11 +8,14 @@ import { BookTable } from "../shared/book-table.model";
 })
 export class BookTableComponent implements OnInit {
   showForm = false;
+
   tableData: BookTable[] = [
     new BookTable(1, "God of Small Things", "Arundhathi Roy", true, 4.5),
     new BookTable(2, "Animal Farm", "George Orwell", true, 5),
     new BookTable(3, "Something Fresh", "P.G.Wodehouse", true, 4.5)
   ];
+
+  @Output() showBookDetail = new EventEmitter<BookTable>();
 
   constructor() {}
 
@@ -23,5 +26,9 @@ export class BookTableComponent implements OnInit {
   }
   onCancelForm() {
     this.showForm = !this.showForm;
+  }
+
+  onBookDetail(tableData: BookTable) {
+    this.showBookDetail.emit(tableData);
   }
 }

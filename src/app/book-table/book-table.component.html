@@ -32,7 +32,7 @@
     <th>Rating</th>
   </tr>
   <tbody>
-    <tr *ngFor="let tableDatas of tableData">
+    <tr (click)="onBookDetail(tableDatas)" *ngFor="let tableDatas of tableData">
       <td>{{ tableDatas.id }}</td>
       <td>{{ tableDatas.bookname }}</td>
       <td>{{ tableDatas.authorname }}</td>
