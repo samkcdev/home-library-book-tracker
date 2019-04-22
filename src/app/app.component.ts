@@ -7,9 +7,11 @@ import { BookTable } from "./shared/book-table.model";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  showOnload = true;
   bookData: BookTable[];
 
   bookFromtable(bookDatas) {
     this.bookData = bookDatas;
+    this.showOnload = false;
   }
 }

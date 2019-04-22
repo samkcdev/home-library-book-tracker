@@ -1,0 +1,11 @@
+.book-detail-container {
+  display: flex;
+}
+
+
+.book-cover {
+  border: 1px solid #ccc;
+  height: 200px;
+  width: 200px;
+  margin-right: 30px;
+}

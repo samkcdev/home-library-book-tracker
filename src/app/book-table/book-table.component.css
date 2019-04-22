@@ -14,6 +14,10 @@ th {
   border: 1px solid #dddddd;
 }
 
+tr {
+  cursor: pointer;
+}
+
 .edit-bar {
   margin-bottom: 10px;
 }
@@ -23,11 +27,12 @@ th {
   background: #dddddd;
   border: 1px solid #ccc;
 }
-.add-book-form > form {
+
+.add-book-form>form {
   display: flex;
 }
 
-.add-book-form > form .add-book-form-content {
+.add-book-form>form .add-book-form-content {
   margin-right: 15px;
 }
 
