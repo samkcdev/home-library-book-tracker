@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { BookTable } from "../shared/book-table.model";
+import { BookService } from "../book.service";
 
 @Component({
   selector: "app-book-table",
@@ -9,17 +10,15 @@ import { BookTable } from "../shared/book-table.model";
 export class BookTableComponent implements OnInit {
   showForm = false;
 
-  tableData: BookTable[] = [
-    new BookTable(1, "God of Small Things", "Arundhathi Roy", true, 4.5),
-    new BookTable(2, "Animal Farm", "George Orwell", true, 5),
-    new BookTable(3, "Something Fresh", "P.G.Wodehouse", true, 4.5)
-  ];
+  tableData: BookTable[] = [];
 
-  @Output() showBookDetail = new EventEmitter<BookTable>();
+  // @Output() showBookDetail = new EventEmitter<BookTable>();
 
-  constructor() {}
+  constructor(private bookservices: BookService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tableData = this.bookservices.tableData;
+  }
 
   onAddForm() {
     this.showForm = true;
@@ -29,6 +28,6 @@ export class BookTableComponent implements OnInit {
   }
 
   onBookDetail(tableData: BookTable) {
-    this.showBookDetail.emit(tableData);
+    this.bookservices.bookDetails.emit(tableData);
   }
 }
