@@ -17,7 +17,7 @@ export class BookTableComponent implements OnInit {
   constructor(private bookservices: BookService) {}
 
   ngOnInit() {
-    this.tableData = this.bookservices.tableData;
+    this.tableData = this.bookservices.getBookData();
   }
 
   onAddForm() {

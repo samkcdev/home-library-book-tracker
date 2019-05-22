@@ -9,4 +9,7 @@ export class BookService {
     new BookTable(3, "Something Fresh", "P.G.Wodehouse", true, 4.5),
     new BookTable(4, "Glass Palace", "Amitav Ghosh", false, 0)
   ];
+  getBookData() {
+    return this.tableData;
+  }
 }

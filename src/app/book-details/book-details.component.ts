@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { BookTable } from "../shared/book-table.model";
+import { BookService } from "../book.service";
 
 @Component({
   selector: "app-book-details",
@@ -8,7 +9,7 @@ import { BookTable } from "../shared/book-table.model";
 })
 export class BookDetailsComponent implements OnInit {
   @Input() sendingBookData: BookTable;
-  constructor() {}
+  constructor(private bookservices: BookService) {}
 
   ngOnInit() {}
 }

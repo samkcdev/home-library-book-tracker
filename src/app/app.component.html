@@ -4,5 +4,8 @@
   </h1>
 </header>
 
-<app-book-table (showBookDetail)="bookFromtable($event)" *ngIf="showOnload"></app-book-table>
-<app-book-details [sendingBookData]="bookData" *ngIf="bookData"></app-book-details> 
+<app-book-table *ngIf="showOnload"></app-book-table>
+<app-book-details
+  [sendingBookData]="bookData"
+  *ngIf="bookData"
+></app-book-details>
