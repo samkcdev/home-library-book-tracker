@@ -7,18 +7,22 @@
   <form action="">
     <div class="add-book-form-content">
       <label for="">Book Name</label>
-      <input type="text" placeholder="Please enter Book Name" />
+      <input type="text" #bookname placeholder="Please enter Book Name" />
     </div>
     <div class="add-book-form-content">
       <label for="">Author</label>
-      <input type="text" placeholder="Please enter Author" />
+      <input type="text" #authorname placeholder="Please enter Author" />
     </div>
     <div class="add-book-form-content">
       <label for="">Read</label>
-      <input type="radio" name="confirm" value="yes" checked />Yes
-      <input type="radio" name="confirm" value="no" />No
+      <input type="radio" #readTrue name="confirm" value="Yes" checked />Yes
+      <input type="radio" #readFalse name="confirm" value="No" />No
     </div>
-    <button type="submit">Add Book</button>
+    <div class="add-book-form-content">
+      <label for="">Read</label>
+      <input type="text" #rating placeholder="Please give a rating out of 5" />
+    </div>
+    <button type="submit" (click)="addToTable()">Add Book</button>
     <button type="button" (click)="onCancelForm()">Cancel</button>
   </form>
 </div>
@@ -32,8 +36,11 @@
     <th>Rating</th>
   </tr>
   <tbody>
-    <tr (click)="onBookDetail(tableDatas)" *ngFor="let tableDatas of tableData">
-      <td>{{ tableDatas.id }}</td>
+    <tr
+      (click)="onBookDetail(tableDatas)"
+      *ngFor="let tableDatas of tableData; let i = index"
+    >
+      <td>{{ i + 1 }}</td>
       <td>{{ tableDatas.bookname }}</td>
       <td>{{ tableDatas.authorname }}</td>
       <td>{{ tableDatas.readornot }}</td>

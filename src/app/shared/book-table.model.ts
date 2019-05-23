@@ -5,7 +5,6 @@ export class BookTable {
   // readornot: boolean;
   // rating: number;
   constructor(
-    public id: number,
     public bookname: string,
     public authorname: string,
     public readornot: boolean,
