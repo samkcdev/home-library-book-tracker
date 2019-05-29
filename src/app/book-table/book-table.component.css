@@ -28,11 +28,12 @@ tr {
   border: 1px solid #ccc;
 }
 
-.add-book-form>form {
+.add-book-form > form {
   display: flex;
+  align-items: center;
 }
 
-.add-book-form>form .add-book-form-content {
+.add-book-form > form .add-book-form-content {
   margin-right: 15px;
 }
 

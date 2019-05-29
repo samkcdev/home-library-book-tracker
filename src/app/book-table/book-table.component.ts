@@ -7,6 +7,7 @@ import {
 } from "@angular/core";
 import { BookTable } from "../shared/book-table.model";
 import { BookService } from "../book.service";
+import { BookTrackerServerService } from "../booktracker.server.service";
 
 @Component({
   selector: "app-book-table",
@@ -15,6 +16,12 @@ import { BookService } from "../book.service";
 })
 export class BookTableComponent implements OnInit, AfterViewInit {
   showForm = false;
+  readVals: any = ["Yes", "No"];
+  optionVal: "yes";
+  onReadValChanges(value) {
+    this.optionVal = value;
+    console.log((this.optionVal = value));
+  }
 
   @ViewChild("bookname") bookname: ElementRef;
   @ViewChild("authorname") authorname: ElementRef;
@@ -22,7 +29,10 @@ export class BookTableComponent implements OnInit, AfterViewInit {
   @ViewChild("readFalse") readFalse: ElementRef;
   @ViewChild("rating") rating: ElementRef;
   tableData: BookTable[] = [];
-  constructor(private bookservices: BookService) {}
+  constructor(
+    private bookservices: BookService,
+    private booktrackerDataservice: BookTrackerServerService
+  ) {}
 
   // @Output() showBookDetail = new EventEmitter<BookTable>();
 
@@ -38,17 +48,15 @@ export class BookTableComponent implements OnInit, AfterViewInit {
   addToTable() {
     const bookName = this.bookname.nativeElement.value;
     const authorName = this.authorname.nativeElement.value;
-    const readTrue = this.readTrue.nativeElement.value;
-    const readFalse = this.readFalse.nativeElement.value;
+    const readOrnot = this.optionVal;
     const rating = this.rating.nativeElement.value;
-    const formData = new BookTable(
-      bookName,
-      authorName,
-      readTrue,
-      readFalse,
-      rating
-    );
-    this.bookservices.addNewBooks(formData);
+    const formData = new BookTable(bookName, authorName, readOrnot, rating);
+    this.booktrackerDataservice
+      .storeBooks(this.tableData)
+      .subscribe(
+        response => console.log(response),
+        error => console.log(error)
+      );
   }
   onCancelForm() {
     this.showForm = !this.showForm;

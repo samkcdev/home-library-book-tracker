@@ -7,7 +7,7 @@ export class BookTable {
   constructor(
     public bookname: string,
     public authorname: string,
-    public readornot: boolean,
+    public readornot: string,
     public rating: number
   ) {}
 }

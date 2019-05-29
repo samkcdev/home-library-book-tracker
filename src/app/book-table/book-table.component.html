@@ -15,11 +15,19 @@
     </div>
     <div class="add-book-form-content">
       <label for="">Read</label>
-      <input type="radio" #readTrue name="confirm" value="Yes" checked />Yes
-      <input type="radio" #readFalse name="confirm" value="No" />No
+      <div *ngFor="let read of readVals">
+        <input
+          type="radio"
+          name="yes"
+          value="{{ read }}"
+          [(ngModel)]="optionVal"
+          checked
+          (change)="onReadValChanges($event)"
+        />{{ read }}
+      </div>
     </div>
     <div class="add-book-form-content">
-      <label for="">Read</label>
+      <label for="">Rating</label>
       <input type="text" #rating placeholder="Please give a rating out of 5" />
     </div>
     <button type="submit" (click)="addToTable()">Add Book</button>
