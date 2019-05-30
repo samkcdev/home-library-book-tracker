@@ -8,6 +8,7 @@ import {
 import { BookTable } from "../shared/book-table.model";
 import { BookService } from "../book.service";
 import { BookTrackerServerService } from "../booktracker.server.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-book-table",
@@ -16,7 +17,7 @@ import { BookTrackerServerService } from "../booktracker.server.service";
 })
 export class BookTableComponent implements OnInit, AfterViewInit {
   showForm = false;
-  readVals: any = ["Yes", "No"];
+  readVals: any = [{ id: 1, name: "Yes" }, { id: 2, name: "No" }];
   optionVal: "yes";
   onReadValChanges(value) {
     this.optionVal = value;
@@ -57,6 +58,10 @@ export class BookTableComponent implements OnInit, AfterViewInit {
         response => console.log(response),
         error => console.log(error)
       );
+  }
+
+  testform(form: NgForm) {
+    console.log(form);
   }
   onCancelForm() {
     this.showForm = !this.showForm;
