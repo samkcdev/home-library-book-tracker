@@ -16,9 +16,12 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./book-table.component.css"]
 })
 export class BookTableComponent implements OnInit, AfterViewInit {
+  @ViewChild("form") addBookForm: NgForm;
+
   showForm = false;
-  readVals: any = [{ id: 1, name: "Yes" }, { id: 2, name: "No" }];
-  optionVal: "yes";
+  readVals: any = ["Yes", "No"];
+  optionsFirst = this.readVals[0];
+
   onReadValChanges(value) {
     this.optionVal = value;
     console.log((this.optionVal = value));
@@ -60,8 +63,8 @@ export class BookTableComponent implements OnInit, AfterViewInit {
       );
   }
 
-  testform(form: NgForm) {
-    console.log(form);
+  testform() {
+    console.log(this.addBookForm);
   }
   onCancelForm() {
     this.showForm = !this.showForm;

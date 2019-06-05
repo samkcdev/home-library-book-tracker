@@ -13,6 +13,7 @@
         #bookname
         placeholder="Please enter Book Name"
         ngModel
+        required
       />
     </div>
     <div class="add-book-form-content">
@@ -23,13 +24,20 @@
         #authorname
         placeholder="Please enter Author"
         ngModel
+        required
       />
     </div>
     <div class="add-book-form-content">
       <label for="">Read</label>
       <div *ngFor="let read of readVals">
-        <input type="radio" name="readornot" [value]="read.id" ngModel />
-        {{ read.name }}
+        <input
+          type="radio"
+          name="read"
+          [value]="read"
+          [ngModel]="optionsFirst"
+          required
+        />
+        {{ read }}
       </div>
     </div>
     <div class="add-book-form-content">
@@ -40,9 +48,10 @@
         #rating
         placeholder="Please give a rating out of 5"
         ngModel
+        required
       />
     </div>
-    <button type="submit">Add Book</button>
+    <button type="submit" [disabled]="!form.valid">Add Book</button>
     <button type="button" (click)="onCancelForm()">Cancel</button>
   </form>
 </div>
