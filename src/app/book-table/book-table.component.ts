@@ -23,8 +23,8 @@ export class BookTableComponent implements OnInit, AfterViewInit {
   optionsFirst = this.readVals[0];
 
   onReadValChanges(value) {
-    this.optionVal = value;
-    console.log((this.optionVal = value));
+    // this.optionVal = value;
+    // console.log((this.optionVal = value));
   }
 
   @ViewChild("bookname") bookname: ElementRef;
@@ -50,17 +50,17 @@ export class BookTableComponent implements OnInit, AfterViewInit {
   }
 
   addToTable() {
-    const bookName = this.bookname.nativeElement.value;
-    const authorName = this.authorname.nativeElement.value;
-    const readOrnot = this.optionVal;
-    const rating = this.rating.nativeElement.value;
-    const formData = new BookTable(bookName, authorName, readOrnot, rating);
-    this.booktrackerDataservice
-      .storeBooks(this.tableData)
-      .subscribe(
-        response => console.log(response),
-        error => console.log(error)
-      );
+    // const bookName = this.bookname.nativeElement.value;
+    // const authorName = this.authorname.nativeElement.value;
+    // // const readOrnot = this.optionVal;
+    // const rating = this.rating.nativeElement.value;
+    // const formData = new BookTable(bookName, authorName, readOrnot, rating);
+    // this.booktrackerDataservice
+    //   .storeBooks(this.tableData)
+    //   .subscribe(
+    //     response => console.log(response),
+    //     error => console.log(error)
+    //   );
   }
 
   testform() {
